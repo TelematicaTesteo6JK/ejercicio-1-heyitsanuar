@@ -18,21 +18,35 @@ float parkingPayment(int hours)
     cant = hours*10;
   if (hours>=6 && hours<=10)
     cant = hours*9;
+  if (hours>11)
+    cant = hours*7;
+
+  return cant;
+}
+
+string hasPassed(int hour, int expected, int actual){
+    if(hour<0)
+        return "Error";
+    else
+        return (expected==actual) ? "Passed":"Failed";   
+}
+
+float actualPayment(int hours){
+  int cant(0);
+  
+  if (hours>0 && hours<=5)
+    cant = hours*10;
+  if (hours>=6 && hours<=10)
+    cant = hours*9;
   if (hours>=10)
     cant = hours*7;
 
   return cant;
 }
 
-string hasPassed(int expected, int actual){
-     return (expected==actual) ? "Passed":"Failed";   
-}
-
-void testCases(){
-
+void workOut(){
     int length;
     
-    cout<<"How many data are you gonna evaluate?\n"<<endl;
     cin>>length;
     
     int hours[length];
@@ -52,13 +66,21 @@ void testCases(){
             
        int hour=hours[row];
        float expected = parkingPayment(hour);
-       float actual = parkingPayment(hour);
-       string result = hasPassed(expected,actual); 
+       float actual = actualPayment(hour);
+       string result = hasPassed(hour,expected,actual); 
        
        cout<<"     "<<hour<<"             "<<expected<<"               "<<actual<<"             "<<result<<endl;
     }
     
     cout<<endl;
+}
+
+void testCases(){
+    
+    cout<<"How many data are you gonna evaluate for Equivalence Partitioning?\n"<<endl;
+    workOut();
+    cout<<"How many data are you gonna evaluate for Boundary Value Analysis?\n"<<endl;
+    workOut();
 }
 
 int main()
