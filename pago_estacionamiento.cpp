@@ -41,7 +41,7 @@ float actualPayment(int hours){
   if (hours>=10)
     cant = hours*7;
 
-   return cant;
+  return cant;
 }
 
 void workOut(){
@@ -58,7 +58,7 @@ void workOut(){
     
     system("cls");
     
-    cout<<"\n--------------------------Test cases--------------------------\n"<<endl;
+  cout<<"\n--------------------------Test cases--------------------------\n"<<endl;
     
     cout<<"Test data"<<"    "<<"Expected result"<<"    "<<"Actual Result"<<"    "<<"Pass or Fail\n"<<endl;
     
@@ -76,6 +76,7 @@ void workOut(){
 }
 
 void testCases(){
+    
     cout<<"How many data are you gonna evaluate for Equivalence Partitioning?\n"<<endl;
     workOut();
     cout<<"How many data are you gonna evaluate for Boundary Value Analysis?\n"<<endl;
@@ -84,7 +85,7 @@ void testCases(){
 
 int main()
 {
-    testCases();
+  testCases();
   
     system("pause");
     return 0;
